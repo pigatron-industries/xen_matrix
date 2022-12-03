@@ -2,7 +2,7 @@
 #include "hwconfig.h"
 #include "MainController.h"
 
-// MainController mainController = MainController(SAMPLE_RATE);
+MainController mainController = MainController(SAMPLE_RATE);
 
 void setup() {
     Serial.begin(SERIAL_BAUD);
@@ -12,9 +12,9 @@ void setup() {
     Serial.println("=========================================");
     Serial.println();
 
-    // mainController.init();
+    mainController.init();
 }
 
 void loop() {
-    // mainController.update();
+    mainController.update();
 }
