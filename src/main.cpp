@@ -1,8 +1,6 @@
 #include <Arduino.h>
 #include "hwconfig.h"
-// #include "MainController.h"
-
-#include <eurorack.h>
+#include "MainController.h"
 
 // MainController mainController = MainController(SAMPLE_RATE);
 
