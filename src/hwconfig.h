@@ -21,6 +21,12 @@
 #define POT8_CS 2
 #define POT9_CS 1
 
+#define MATRIX_ROWS 6
+#define MATRIX_COLS 6
+#define KEY_ROW_PINS {16, 15, 14, 41, 40, 39};
+#define KEY_COL_PINS {38, 37, 36, 35, 34, 33};
+// #define KEY_COL_PINS {33, 34, 35, 36, 37, 38};
+
 // Other config
 #define SERIAL_BAUD 115200
 #define SAMPLE_RATE 100 //Rate of updating potentiometer values

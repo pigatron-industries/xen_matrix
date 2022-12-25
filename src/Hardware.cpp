@@ -15,7 +15,8 @@ void Hardware::init() {
     is32fl3738.init();
     // display.init();
 
-    clearOutputLeds();
+    //clearOutputLeds();
+    updateOutputLeds();
     
     // TODO reset Pot outputs
 }
@@ -29,15 +30,33 @@ void Hardware::clearOutputLeds() {
 }
 
 void Hardware::updateOutputLeds() {
-    // TODO output led values from pot output values
-    // for(int i = 0; i < OUTPUT_CV_COUNT; i++) {
-    //     float value = Hardware::hw.cvOutputPins[i]->getAnalogValue();
-    //     if(value > 0) {
-    //         Hardware::hw.outputRedLeds[i]->analogWrite(0);
-    //         Hardware::hw.outputGreenLeds[i]->analogWrite(value*0.1);
-    //     } else {
-    //         Hardware::hw.outputGreenLeds[i]->analogWrite(0);
-    //         Hardware::hw.outputRedLeds[i]->analogWrite(-value*0.1);
-    //     }
+    Serial.println("updateOutputLeds");
+    for(int i = 0; i < 6; i++) {
+        for(int j = 0; j < 6; j++) {
+            matrixLeds[i][j]->analogWrite(0.2);
+            delay(50);
+            matrixLeds[i][j]->analogWrite(0);
+        }
+    }
+
+    for(int i = 0;  i < 9;  i++) {
+        mcp4351[i].pins[0].analogWrite(0x00);
+        mcp4351[i].pins[1].analogWrite(0x00);
+        mcp4351[i].pins[2].analogWrite(0x00);
+        mcp4351[i].pins[3].analogWrite(0x00);
+    }
+
+    // for(int i = 0;  i < 9;  i++) {
+    //     mcp4351[i].pins[0].analogWrite(0xFF);
+    //     mcp4351[i].pins[1].analogWrite(0xFF);
+    //     mcp4351[i].pins[2].analogWrite(0xFF);
+    //     mcp4351[i].pins[3].analogWrite(0xFF);
     // }
+
+    
+    // mcp4351[7].pins[0].analogWrite(0xFF);
+    // mcp4351[7].pins[1].analogWrite(0xFF);
+    // mcp4351[7].pins[2].analogWrite(0xFF);
+    // mcp4351[7].pins[3].analogWrite(0xFF);
+
 }
