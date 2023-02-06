@@ -9,20 +9,20 @@
 </settings>
 <grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="no" altdistance="25" altunitdist="mil" altunit="mil"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="20" name="Dimension" color="24" fill="1" visible="yes" active="yes"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="yes"/>
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
@@ -1127,7 +1127,7 @@ einem neuen Namen ab.</description>
 </element>
 <element name="R1" library="resistors" package="R0603" value="100k" x="44.45" y="98.425" smashed="yes" rot="MR0">
 <attribute name="NAME" x="42.799" y="97.917" size="1.016" layer="26" rot="MR0"/>
-<attribute name="VALUE" x="45.085" y="96.52" size="1.016" layer="28" rot="MR0"/>
+<attribute name="VALUE" x="50.165" y="97.79" size="1.016" layer="28" rot="MR0"/>
 </element>
 <element name="SDB" library="connectors" package="HEADER/MALE/01" value="HEADER/MALE/01" x="1.27" y="60.96" smashed="yes">
 <attribute name="NAME" x="3.175" y="60.706" size="1.016" layer="25" ratio="10"/>
@@ -1151,31 +1151,31 @@ einem neuen Namen ab.</description>
 </element>
 <element name="C3" library="capacitors" package="C0603" value="0.47uF" x="43.815" y="106.68" smashed="yes" rot="MR90">
 <attribute name="NAME" x="43.307" y="108.331" size="1.016" layer="26" rot="MR90"/>
-<attribute name="VALUE" x="41.91" y="106.045" size="1.016" layer="28" rot="MR90"/>
+<attribute name="VALUE" x="44.45" y="105.41" size="1.016" layer="28" rot="MR90"/>
 </element>
 <element name="C4" library="capacitors" package="C0603" value="0.1uF" x="46.355" y="106.68" smashed="yes" rot="MR90">
 <attribute name="NAME" x="45.847" y="108.331" size="1.016" layer="26" rot="MR90"/>
-<attribute name="VALUE" x="44.45" y="106.045" size="1.016" layer="28" rot="MR90"/>
+<attribute name="VALUE" x="47.625" y="106.045" size="1.016" layer="28" rot="MR90"/>
 </element>
 <element name="C5" library="capacitors" package="C0603" value="0.47uF" x="27.94" y="107.315" smashed="yes" rot="MR90">
 <attribute name="NAME" x="27.432" y="108.966" size="1.016" layer="26" rot="MR90"/>
-<attribute name="VALUE" x="26.035" y="106.68" size="1.016" layer="28" rot="MR90"/>
+<attribute name="VALUE" x="28.575" y="105.41" size="1.016" layer="28" rot="MR90"/>
 </element>
 <element name="C6" library="capacitors" package="C0603" value="0.1uF" x="30.48" y="107.315" smashed="yes" rot="MR90">
 <attribute name="NAME" x="29.972" y="108.966" size="1.016" layer="26" rot="MR90"/>
-<attribute name="VALUE" x="28.575" y="106.68" size="1.016" layer="28" rot="MR90"/>
+<attribute name="VALUE" x="31.75" y="106.045" size="1.016" layer="28" rot="MR90"/>
 </element>
 <element name="C7" library="capacitors" package="C0603" value="0.47uF" x="24.765" y="103.505" smashed="yes" rot="MR0">
 <attribute name="NAME" x="23.114" y="102.997" size="1.016" layer="26" rot="MR0"/>
-<attribute name="VALUE" x="25.4" y="101.6" size="1.016" layer="28" rot="MR0"/>
+<attribute name="VALUE" x="22.86" y="102.87" size="1.016" layer="28" rot="MR0"/>
 </element>
 <element name="C8" library="capacitors" package="C0603" value="0.1uF" x="24.765" y="100.965" smashed="yes" rot="MR0">
 <attribute name="NAME" x="23.114" y="100.457" size="1.016" layer="26" rot="MR0"/>
-<attribute name="VALUE" x="25.4" y="99.06" size="1.016" layer="28" rot="MR0"/>
+<attribute name="VALUE" x="22.86" y="100.33" size="1.016" layer="28" rot="MR0"/>
 </element>
 <element name="R3" library="resistors" package="R0603" value="20k" x="44.45" y="103.505" smashed="yes" rot="MR0">
 <attribute name="NAME" x="47.879" y="102.997" size="1.016" layer="26" rot="MR0"/>
-<attribute name="VALUE" x="45.085" y="101.6" size="1.016" layer="28" rot="MR0"/>
+<attribute name="VALUE" x="48.895" y="102.87" size="1.016" layer="28" rot="MR0"/>
 </element>
 <element name="NA1" library="connectors" package="HEADER/MALE/01" value="HEADER/MALE/01" x="1.27" y="83.82" smashed="yes">
 <attribute name="NAME" x="3.175" y="83.566" size="1.016" layer="25" ratio="10"/>
