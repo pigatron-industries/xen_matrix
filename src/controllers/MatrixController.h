@@ -12,12 +12,15 @@ using namespace eurorack;
 class MatrixController : public Controller {
     public:
         enum Mode {
-            MATRIX
+            MIXER,
+            ROUTER
         };
 
-        MatrixController() : Controller(Mode::MATRIX) {}
+        MatrixController() : Controller(Mode::ROUTER) {}
         virtual void init(float sampleRate);
         virtual void init();
+        virtual int cycleMode(int amount);
+
         virtual void update();
         virtual void process();
 

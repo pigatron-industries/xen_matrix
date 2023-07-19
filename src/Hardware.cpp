@@ -13,12 +13,10 @@ void Hardware::init() {
     Wire.begin();
 
     is32fl3738.init();
-    // display.init();
+    display.init();
 
     //clearOutputLeds();
     updateOutputLeds();
-    
-    // TODO reset Pot outputs
 }
 
 void Hardware::clearOutputLeds() {
@@ -45,18 +43,4 @@ void Hardware::updateOutputLeds() {
         mcp4351[i].pins[2].analogWrite(0x00);
         mcp4351[i].pins[3].analogWrite(0x00);
     }
-
-    // for(int i = 0;  i < 9;  i++) {
-    //     mcp4351[i].pins[0].analogWrite(0xFF);
-    //     mcp4351[i].pins[1].analogWrite(0xFF);
-    //     mcp4351[i].pins[2].analogWrite(0xFF);
-    //     mcp4351[i].pins[3].analogWrite(0xFF);
-    // }
-
-    
-    // mcp4351[7].pins[0].analogWrite(0xFF);
-    // mcp4351[7].pins[1].analogWrite(0xFF);
-    // mcp4351[7].pins[2].analogWrite(0xFF);
-    // mcp4351[7].pins[3].analogWrite(0xFF);
-
 }

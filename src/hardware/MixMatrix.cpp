@@ -21,6 +21,10 @@ MixMatrix::MixMatrix(MatrixValues* matrixValues) {
     this->matrixValues = matrixValues;
 }
 
+void MixMatrix::setMode(MixMatrix::Mode mode) { 
+    this->mode = mode; 
+}
+
 bool MixMatrix::update() {
     bool updated = keypad.getKeys();
     if(updated) {
@@ -39,19 +43,28 @@ MatrixKeyState& MixMatrix::getKeyState() {
 
 void MixMatrix::setMatrixValue(uint8_t x, uint8_t y, float value) {
     matrixValues->setMatrixValue(x, y, value);
-    if(matrixValues->getMatrixState(x, y)) {
-        updateOutput(x, y, true, value);
-    }
+    updateOutput(x, y);
 }
 
 void MixMatrix::setMatrixState(uint8_t x, uint8_t y, bool state) {
     matrixValues->setMatrixState(x, y, state);
-    float value = matrixValues->getMatrixValue(x, y);
-    updateOutput(x, y, state, value);
+    updateOutput(x, y);
+
+    if(state && mode == ROUTER) {
+        // turn off all other matrix values in the same column
+        for(uint8_t i=0; i<MATRIX_COLS; i++) {
+            if(i != x) {
+                matrixValues->setMatrixState(i, y, false);
+                updateOutput(i, y);
+            }
+        }
+    }
 }
 
-void MixMatrix::updateOutput(uint8_t x, uint8_t y, bool state, float value) {
+void MixMatrix::updateOutput(uint8_t x, uint8_t y) {
+    bool state = matrixValues->getMatrixState(x, y);
     if(state) {
+        float value = matrixValues->getMatrixValue(x, y);
         Hardware::hw.matrixLeds[x][y]->analogWrite(value*MAX_BRIGHTNESS);
         Hardware::hw.matrixPots[x][y]->analogWrite(value);
     } else {

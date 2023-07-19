@@ -5,7 +5,7 @@
 #include <eurorack.h>
 #include <eurorack_is32fl3738.h>
 #include "hardware/MCP4351Device.h"
-// #include "display/OLEDDisplay.h"
+#include "display/OLEDDisplay.h"
 // #include "Colour.h"
 #include "hwconfig.h"
 
@@ -65,7 +65,7 @@ class Hardware {
             { &is32fl3738.pins[45], &is32fl3738.pins[37], &is32fl3738.pins[29], &is32fl3738.pins[21], &is32fl3738.pins[13], &is32fl3738.pins[5]}
         };
 
-        // OLEDDisplay display;
+        OLEDDisplay display;
 
 };
 

@@ -22,7 +22,13 @@ class MatrixKeyState {
 
 class MixMatrix {
     public:
+        enum Mode {
+            MIXER,
+            ROUTER
+        };
+
         MixMatrix(MatrixValues* matrixValues);
+        void setMode(MixMatrix::Mode mode);
 
         bool update();
         MatrixKeyState& getKeyState();
@@ -32,10 +38,11 @@ class MixMatrix {
     private:
         MatrixValues* matrixValues;
 
+        MixMatrix::Mode mode = MIXER;
         static Keypad keypad;
         MatrixKeyState keyState;
 
-        void updateOutput(uint8_t x, uint8_t y, bool state, float value);
+        void updateOutput(uint8_t x, uint8_t y);
 };
 
 #endif
