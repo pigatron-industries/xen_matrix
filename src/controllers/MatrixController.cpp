@@ -2,6 +2,8 @@
 
 void MatrixController::init(float sampleRate) {
     Controller::init(sampleRate);
+    configParam(Parameter::BANK_SELECT, 0, 15);
+    configParam(Parameter::MATRIX_MODE, 0, 1);
     init();
 }
 
@@ -10,20 +12,27 @@ void MatrixController::init() {
     Hardware::hw.display.textLine("MATRIX");
 }
 
-int MatrixController::cycleMode(int amount) { 
-    mode.cycle(amount);
+int MatrixController::cycleParameter(int amount) {
+    parameters.cycle(amount);
+    Serial.print("Cycle parameter ");
+    Serial.println(parameters.getSelectedIndex());
+    return parameters.getSelectedIndex(); 
+}
 
-    switch(mode.value) {
-        case Mode::MIXER:
-            mixMatrix.setMode(MixMatrix::MIXER);
+void MatrixController::cycleValue(int amount) {
+    uint8_t value = parameters.getSelected().cycle(amount);
+    Serial.print("Cycle value ");
+    Serial.println(value);
+    switch(parameters.getSelectedIndex()) {
+        case Parameter::BANK_SELECT:
+            // TODO
             break;
-        case Mode::ROUTER:
-            mixMatrix.setMode(MixMatrix::ROUTER);
+        case Parameter::MATRIX_MODE:
+            mixMatrix.setMode(static_cast<MixMatrix::Mode>(value));
             break;
     }
 
-    Serial.println(mode.value);
-    return mode.value; 
+    save();
 }
 
 void MatrixController::update() {

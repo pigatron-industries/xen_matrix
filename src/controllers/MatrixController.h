@@ -9,17 +9,18 @@ using namespace eurorack;
 
 #define SAMPLERATE_DIVIDER 8
 
-class MatrixController : public Controller {
+class MatrixController : public ParameterizedController<2> {
     public:
-        enum Mode {
-            MIXER,
-            ROUTER
+        enum Parameter {
+            BANK_SELECT = 0,
+            MATRIX_MODE
         };
 
-        MatrixController() : Controller(Mode::ROUTER) {}
+        MatrixController() : ParameterizedController() {}
         virtual void init(float sampleRate);
         virtual void init();
-        virtual int cycleMode(int amount);
+        virtual int cycleParameter(int amount);
+        virtual void cycleValue(int amount);
 
         virtual void update();
         virtual void process();

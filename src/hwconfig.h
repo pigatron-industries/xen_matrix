@@ -1,8 +1,8 @@
 
 // Teensy Pins
 #define ENCODER_BTN_PIN 32
-#define ENCODER_PIN1 31
-#define ENCODER_PIN2 30
+#define ENCODER_PIN1 30
+#define ENCODER_PIN2 31
 #define CV1_PIN A9
 #define CV2_PIN A8
 
@@ -25,7 +25,6 @@
 #define MATRIX_COLS 6
 #define KEY_ROW_PINS {16, 15, 14, 41, 40, 39};
 #define KEY_COL_PINS {38, 37, 36, 35, 34, 33};
-// #define KEY_COL_PINS {33, 34, 35, 36, 37, 38};
 
 // Other config
 #define SERIAL_BAUD 115200

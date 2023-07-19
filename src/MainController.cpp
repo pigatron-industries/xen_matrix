@@ -18,16 +18,12 @@ MainController::MainController(float sampleRate) : AbstractMainController(Hardwa
 void MainController::init() {
     Hardware::hw.init();
     AbstractMainController::init();
-
-    this->shortPress = &MainController::incrementMode;
-    this->clockWise = &MainController::incrementValue;
-    this->antiClockWise = &MainController::decrementValue;
     this->initOnModeSelect = false;
 }
 
 void MainController::controllerInit() {
     interruptTimer.end();
-    saveMode();
+    saveState();
 
     Hardware::hw.clearOutputLeds();
     // Hardware::hw.display.clear();

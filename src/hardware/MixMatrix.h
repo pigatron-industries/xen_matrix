@@ -23,7 +23,7 @@ class MatrixKeyState {
 class MixMatrix {
     public:
         enum Mode {
-            MIXER,
+            MIXER = 0,
             ROUTER
         };
 
