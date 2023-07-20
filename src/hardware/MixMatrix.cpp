@@ -21,6 +21,15 @@ MixMatrix::MixMatrix(MatrixValues* matrixValues) {
     this->matrixValues = matrixValues;
 }
 
+void MixMatrix::setMatrixValues(MatrixValues* matrixValues) {
+    this->matrixValues = matrixValues;
+    for(uint8_t x = 0; x < MATRIX_COLS; x++) {
+        for(uint8_t y = 0; y < MATRIX_ROWS; y++) {
+            updateOutput(x, y);
+        }
+    }
+}
+
 void MixMatrix::setMode(MixMatrix::Mode mode) { 
     this->mode = mode; 
 }

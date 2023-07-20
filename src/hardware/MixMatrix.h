@@ -28,6 +28,11 @@ class MixMatrix {
         };
 
         MixMatrix(MatrixValues* matrixValues);
+        
+        MatrixValues* getMatrixValues() { return matrixValues; };
+        bool getMatrixState(uint8_t x, uint8_t y) { return matrixValues->getMatrixState(x, y); };
+
+        void setMatrixValues(MatrixValues* matrixValues);
         void setMode(MixMatrix::Mode mode);
 
         bool update();

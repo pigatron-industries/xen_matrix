@@ -30,9 +30,9 @@ class MatrixController : public ParameterizedController<2> {
         LinearInput<AnalogInputPinT> ampCvInput = LinearInput<AnalogInputPinT>(Hardware::hw.cv1Input, -5, 5, 0, 5);
         LinearInput<AnalogInputPinT> waveCvInput = LinearInput<AnalogInputPinT>(Hardware::hw.cv2Input, -5, 5, 0, 5);
 
-        MatrixValues matrixValues;
+        MatrixValues matrixValues[16];
 
-        MixMatrix mixMatrix = MixMatrix(&matrixValues);
+        MixMatrix mixMatrix = MixMatrix(&matrixValues[0]);
 
         void toggleMatrixValue(uint8_t x, uint8_t y);
 };

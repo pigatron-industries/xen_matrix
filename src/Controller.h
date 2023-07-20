@@ -19,7 +19,7 @@ class Controller : public AbstractController {
 
 
 template<int N>
-class ParameterizedController : public Controller, public AbstractParameterizedController<N> {
+class ParameterizedController : public virtual Controller, public AbstractParameterizedController<N> {
 };
 
 #endif

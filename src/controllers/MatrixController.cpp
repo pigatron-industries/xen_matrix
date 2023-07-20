@@ -25,14 +25,14 @@ void MatrixController::cycleValue(int amount) {
     Serial.println(value);
     switch(parameters.getSelectedIndex()) {
         case Parameter::BANK_SELECT:
-            // TODO
+            mixMatrix.setMatrixValues(&matrixValues[value]);
             break;
         case Parameter::MATRIX_MODE:
             mixMatrix.setMode(static_cast<MixMatrix::Mode>(value));
             break;
     }
 
-    save();
+    AbstractParameterizedController::save();
 }
 
 void MatrixController::update() {
@@ -45,7 +45,7 @@ void MatrixController::update() {
 }
 
 void MatrixController::toggleMatrixValue(uint8_t  x, uint8_t y) {
-    bool state = matrixValues.getMatrixState(x, y);
+    bool state = mixMatrix.getMatrixState(x, y);
     mixMatrix.setMatrixState(x, y, !state);
 }
 
