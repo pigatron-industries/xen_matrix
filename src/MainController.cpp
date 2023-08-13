@@ -10,14 +10,14 @@
 
 MainController* MainController::mainController = nullptr;
 
-MainController::MainController(float sampleRate) : AbstractMainController(Hardware::hw.encoder) {
+MainController::MainController(float sampleRate) : SingleEncoderController(Hardware::hw.encoder) {
     MainController::mainController = this;
     this->sampleRate = sampleRate;
 }
 
 void MainController::init() {
     Hardware::hw.init();
-    AbstractMainController::init();
+    SingleEncoderController::init();
     this->initOnModeSelect = false;
 }
 

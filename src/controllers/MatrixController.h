@@ -2,7 +2,8 @@
 #define FrequencyController_h
 
 #include "Controller.h"
-#include "../hardware/MixMatrix.h"
+#include "hardware/MixMatrix.h"
+#include "MatrixDisplay.h"
 #include <eurorack_dsp.h>
 
 using namespace eurorack;
@@ -29,6 +30,8 @@ class MatrixController : public ParameterizedController<2> {
 
         LinearInput<AnalogInputPinT> ampCvInput = LinearInput<AnalogInputPinT>(Hardware::hw.cv1Input, -5, 5, 0, 5);
         LinearInput<AnalogInputPinT> waveCvInput = LinearInput<AnalogInputPinT>(Hardware::hw.cv2Input, -5, 5, 0, 5);
+
+        MatrixDisplay display;
 
         MatrixValues matrixValues[16];
 

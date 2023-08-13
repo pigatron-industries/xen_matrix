@@ -20,6 +20,9 @@ class Controller : public AbstractController {
 
 template<int N>
 class ParameterizedController : public virtual Controller, public AbstractParameterizedController<N> {
+    public:
+        void load() { AbstractParameterizedController<N>::load(); }
+        void save() { AbstractParameterizedController<N>::save(); }
 };
 
 #endif

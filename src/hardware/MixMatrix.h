@@ -23,8 +23,8 @@ class MatrixKeyState {
 class MixMatrix {
     public:
         enum Mode {
-            MIXER = 0,
-            ROUTER
+            ROUTER = 0,
+            MIXER
         };
 
         MixMatrix(MatrixValues* matrixValues);
