@@ -8,6 +8,8 @@
 class MatrixValues {
     public:
         MatrixValues();
+        void check();
+        void clear();
 
         void setMatrixValue(uint8_t x, uint8_t y, float value);
         void setMatrixState(uint8_t x, uint8_t y, bool state);

@@ -9,6 +9,7 @@
 using namespace eurorack;
 
 #define SAMPLERATE_DIVIDER 8
+#define MATRIX_BANKS 16
 
 class MatrixController : public ParameterizedController<2> {
     public:
@@ -33,11 +34,17 @@ class MatrixController : public ParameterizedController<2> {
 
         MatrixDisplay display;
 
-        MatrixValues matrixValues[16];
-
-        MixMatrix mixMatrix = MixMatrix(&matrixValues[0]);
+        struct SaveMatrixValues {
+            uint8_t check = 0;
+            MatrixValues matrixValues[MATRIX_BANKS];
+        };
+        ConfigField<SaveMatrixValues> banks;
+        MixMatrix mixMatrix = MixMatrix(&banks.data.matrixValues[0]);
 
         void toggleMatrixValue(uint8_t x, uint8_t y);
+
+        void save();
+        void load();
 };
 
 #endif
