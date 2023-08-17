@@ -83,6 +83,7 @@ void MatrixController::update() {
 void MatrixController::toggleMatrixValue(uint8_t  x, uint8_t y) {
     bool state = mixMatrix.getMatrixState(x, y);
     mixMatrix.setMatrixState(x, y, !state);
+    save();
 }
 
 void MatrixController::process() {
