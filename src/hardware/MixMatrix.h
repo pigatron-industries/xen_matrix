@@ -2,8 +2,12 @@
 #define MixMatrix_h
 
 #include <Keypad.h>
+#include <eurorack.h>
 #include "../hwconfig.h"
 #include "MatrixValues.h"
+
+
+#define MAX_KEYS_PRESSED 2
 
 class MatrixKeyState {
     public:
@@ -29,14 +33,14 @@ class MixMatrix {
 
         MixMatrix(MatrixValues* matrixValues);
         
-        MatrixValues* getMatrixValues() { return matrixValues; };
-        bool getMatrixState(uint8_t x, uint8_t y) { return matrixValues->getMatrixState(x, y); };
+        MatrixValues* getMatrixValues() { return matrixValues; }
+        bool getMatrixState(uint8_t x, uint8_t y) { return matrixValues->getMatrixState(x, y); }
 
         void setMatrixValues(MatrixValues* matrixValues);
         void setMode(MixMatrix::Mode mode);
 
         bool update();
-        MatrixKeyState& getKeyState();
+        Array<MatrixKeyState, MAX_KEYS_PRESSED>& getKeyStates() { return keyStates; }
         void setMatrixValue(uint8_t x, uint8_t y, float value);
         void setMatrixState(uint8_t x, uint8_t y, bool state);
         
@@ -45,8 +49,10 @@ class MixMatrix {
 
         MixMatrix::Mode mode = MIXER;
         static Keypad keypad;
-        MatrixKeyState keyState;
 
+        Array<MatrixKeyState, MAX_KEYS_PRESSED> keyStates;
+
+        void updateKeyState(uint8_t keycode, KeyState keystate);
         void updateOutput(uint8_t x, uint8_t y);
 };
 

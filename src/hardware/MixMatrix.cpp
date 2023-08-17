@@ -37,17 +37,28 @@ void MixMatrix::setMode(MixMatrix::Mode mode) {
 bool MixMatrix::update() {
     bool updated = keypad.getKeys();
     if(updated) {
-        Key key = keypad.key[0];
-        if(key.stateChanged) {
-            keyState = MatrixKeyState(key.kchar, key.kstate);
-            return true;
+        for(int i = 0; i < LIST_MAX; i++) {
+            Key key = keypad.key[i];
+            if(key.stateChanged) {
+                updateKeyState(key.kchar, key.kstate);
+                return true;
+            }
         }
     }
     return false;
 }
 
-MatrixKeyState& MixMatrix::getKeyState() {
-    return keyState;
+void MixMatrix::updateKeyState(uint8_t keycode, KeyState keystate) {
+    for (int i = 0; i < keyStates.size(); i++){
+        if(keyStates[i].keycode == keycode) {
+            keyStates.remove(i);
+            break;
+        }
+    }
+
+    if(keystate != IDLE) {
+        keyStates.add(MatrixKeyState(keycode, keystate));
+    }
 }
 
 void MixMatrix::setMatrixValue(uint8_t x, uint8_t y, float value) {
