@@ -74,7 +74,7 @@ void MatrixController::save() {
 void MatrixController::update() {
     if(mixMatrix.update()) {
         Array<MatrixKeyState, MAX_KEYS_PRESSED>& keyStates = mixMatrix.getKeyStates();
-        if(keyStates.size() > 0 and keyStates[0].keystate == PRESSED) {
+        if(keyStates.size() > 0 and keyStates[0].keystate == RELEASED) {
             toggleMatrixValue(keyStates[0].x, keyStates[0].y);
         }
     }

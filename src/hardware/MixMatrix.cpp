@@ -37,12 +37,17 @@ void MixMatrix::setMode(MixMatrix::Mode mode) {
 bool MixMatrix::update() {
     bool updated = keypad.getKeys();
     if(updated) {
-        for(int i = 0; i < LIST_MAX; i++) {
-            Key key = keypad.key[i];
-            if(key.stateChanged) {
-                updateKeyState(key.kchar, key.kstate);
-                return true;
-            }
+        // Serial.print("Updated: ");
+        // Serial.print(keypad.key[0].kcode);
+        // Serial.print(" ");
+        // Serial.print(keypad.key[0].kstate);
+        // Serial.print(" ");
+        // Serial.print(keypad.key[0].stateChanged);
+        // Serial.println();
+        Key key = keypad.key[0];
+        if(key.stateChanged) {
+            updateKeyState(key.kchar, key.kstate);
+            return true;
         }
     }
     return false;
